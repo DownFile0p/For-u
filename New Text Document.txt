@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will You Be My Valentine?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f9e3e3;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    h1 {
+      color: #d32f2f;
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    #yesButton {
+      background-color: #4caf50;
+      color: white;
+    }
+    #noButton {
+      background-color: #f44336;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Will you be my Valentine?</h1>
+  <div class="buttons">
+    <button id="yesButton">YES</button>
+    <button id="noButton">NO</button>
+  </div>
+
+  <script>
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+    const noOptions = [
+      "Are you sure?",
+      "Are you really really sure?",
+      "Think again!",
+      "Last chance!",
+      "You're breaking my heart!",
+      "Please? 🥺",
+      "Just say YES!",
+      "I won't ask again!",
+      "Okay, fine, I'll stop... just kidding!",
+      "YES is the only option!"
+    ];
+    let currentNoIndex = 0;
+    let yesSize = 1.2; // Initial font size for YES button
+
+    noButton.addEventListener('click', () => {
+      if (currentNoIndex < noOptions.length) {
+        noButton.textContent = noOptions[currentNoIndex];
+        currentNoIndex++;
+      } else {
+        noButton.textContent = "YES is the only option!";
+      }
+      yesSize += 0.2; // Increase YES button size
+      yesButton.style.fontSize = `${yesSize}rem`;
+    });
+
+    yesButton.addEventListener('click', () => {
+      alert("Yay! You made my day! 💖");
+    });
+  </script>
+</body>
+</html>
